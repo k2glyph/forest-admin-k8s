@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-portal
+spec:
+  template:
+    metadata:
+      labels:
+        app: admin-portal
+    spec:
+      imagePullSecrets: []
+      containers:
+        - image: medineshkatwal/forest-admin-portal
+          name: admin-portal
+          env: []
+          envFrom:
+            - secretRef:
+                name: admin-secret
+          ports:
+            - containerPort: 3000
+          readinessProbe:
+            tcpSocket: 
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket: 
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20

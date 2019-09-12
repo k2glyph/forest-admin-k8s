@@ -1,0 +1,19 @@
+namespace: staging
+
+bases:
+  - ../../base
+
+resources:
+  
+  - ingress.yaml
+
+secretGenerator:
+  - name: admin-secret
+    behavior: merge
+    type: Opaque
+    envCommand: sops -d secrets/admin-secret.enc.env
+
+
+imageTags:
+  - name: asia.gcr.io/staging-auzmor/bitbucket-auzmorlms-zulu
+    newTag: 638daf2535ab0c610975c0ef41a389a33004602c

@@ -1,0 +1,14 @@
+commonLabels:
+  org: lms
+
+resources:
+  - deployment.yaml
+  - service.yaml
+
+secretGenerator:
+  - name: admin-secret
+    type: Opaque
+    envCommand: "sops -d secrets/admin-secret.enc.env"
+
+imageTags:
+  - name: medineshkatwal/forest-admin-portal
