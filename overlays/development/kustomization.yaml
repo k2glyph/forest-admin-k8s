@@ -15,5 +15,5 @@ secretGenerator:
 
 
 imageTags:
-  - name: asia.gcr.io/staging-auzmor/bitbucket-auzmorlms-zulu
-    newTag: 638daf2535ab0c610975c0ef41a389a33004602c
+  - name: medineshkatwal/forest-admin-portal
+    newTag: v1.0.0
