@@ -5,6 +5,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
+  tls:
+      - hosts:
+        - learn-admin-dev.cicd.auzmor.com
+        secretName: admin-portal-dev-dev-tls
   rules:
   - host: learn-admin-dev.cicd.auzmor.com
     http:
