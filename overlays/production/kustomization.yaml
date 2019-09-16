@@ -1,4 +1,4 @@
-namespace: staging
+namespace: prod
 
 bases:
   - ../../base
