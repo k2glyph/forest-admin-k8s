@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: proxy-service
+spec:
+  externalName: app.forestadmin.com
+  type: ExternalName

@@ -6,6 +6,7 @@ bases:
 resources:
   
   - ingress.yaml
+  - ingress-external.yaml
 
 secretGenerator:
   - name: admin-secret

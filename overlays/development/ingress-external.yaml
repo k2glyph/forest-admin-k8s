@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
+    nginx.ingress.kubernetes.io/upstream-vhost: "app.forestadmin.com"
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+  name: admin-proxy-ingress
+spec:
+  tls:
+  - hosts:
+    - admin-portal-dev.cicd.auzmor.com
+    secretName: admin-portal-dev-tls
+  rules:
+  - host: admin-portal-dev.cicd.auzmor.com
+    http:
+      paths:
+      - backend:
+          serviceName: proxy-service
+          servicePort: 80
+        path: /

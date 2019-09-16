@@ -1,9 +1,10 @@
 commonLabels:
-  org: lms
+  org: admin-portal-test
 
 resources:
   - deployment.yaml
   - service.yaml
+  - proxy-service.yaml
 
 secretGenerator:
   - name: admin-secret
